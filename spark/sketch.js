@@ -11,6 +11,7 @@ function setup() {
 }
 
 function draw() {
+  noStroke();
   background(25);
   for (var i = 0; i < numSparks; i += 1) {
     sparks[i].update();
