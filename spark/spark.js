@@ -2,6 +2,7 @@ function Spark(pos, vel) {
   if (typeof pos !== 'undefined') {
     this.pos = createVector(pos.x, pos.y);
   } else {
+    /* Random initial position */
     var x = random(width);
     var y = random(height);
     this.pos = createVector(x, y);
@@ -9,7 +10,8 @@ function Spark(pos, vel) {
   if (typeof vel !== 'undefined') {
     this.vel = createVector(vel.x, vel.y);
   } else {
-    this.vel = p5.Vector.random2D().mult(1);
+    /* Random initial velocity */
+    this.vel = p5.Vector.random2D().mult(random(1));
   }
 
   this.show = function() {
@@ -21,6 +23,7 @@ function Spark(pos, vel) {
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
     this.wrap();
+    this.slow();
   };
 
   this.wrap = function() {
@@ -34,5 +37,16 @@ function Spark(pos, vel) {
     } else if (this.pos.y > height) {
       this.pos.y = 0;
     }
+  };
+
+  this.slow = function() {
+    this.vel.mult(0.995);
+  };
+
+  this.respawn = function() {
+    if (this.vel.mag() < 0.02) {
+      return true;
+    }
+    return false;
   };
 }

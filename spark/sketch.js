@@ -14,6 +14,9 @@ function draw() {
   background(25);
   for (var i = 0; i < numSparks; i += 1) {
     sparks[i].update();
+    if (sparks[i].respawn()) {
+      sparks[i] = new Spark();
+    }
     sparks[i].show();
   }
 }
