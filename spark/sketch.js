@@ -1,19 +1,21 @@
+var NUMSPARKS = 20;
+var BG = 25;
+
 var canvas;
-var numSparks = 20;
 var sparks = [];
 
 function setup() {
   canvas = createCanvas(windowWidth, 300);
   canvas.parent('sketch-box');
-  for (var i = 0; i < numSparks; i += 1) {
+  for (var i = 0; i < NUMSPARKS; i += 1) {
     sparks[i] = new Spark();
   }
 }
 
 function draw() {
   noStroke();
-  background(25);
-  for (var i = 0; i < numSparks; i += 1) {
+  background(BG);
+  for (var i = 0; i < NUMSPARKS; i += 1) {
     sparks[i].update();
     if (sparks[i].respawn()) {
       sparks[i] = new Spark();
