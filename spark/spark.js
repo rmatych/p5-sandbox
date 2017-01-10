@@ -1,6 +1,6 @@
-var FRICTION = 0.002;
-var TRAILLENGTH = 60;
-var SPARKSIZE = 2;
+var FRICTION = 0.005;
+var TRAILLENGTH = 90;
+var SPARKSIZE = 10;
 
 function Spark(pos, vel) {
   if (typeof pos !== 'undefined') {
@@ -19,17 +19,17 @@ function Spark(pos, vel) {
   }
   this.trail = [];
 
-
   /* Draw the spark and its trail */
   this.show = function() {
-    base = map(this.vel.mag(), 0, 1, BG, 255);
+    base = lerpColor(BGCOLOR, WHITE, this.vel.mag());
     fill(base);
     ellipse(this.pos.x, this.pos.y, SPARKSIZE, SPARKSIZE);
 
     len = this.trail.length;
     for (var i = 0; i < len; i += 1) {
 
-      fill(map(i, 0, len, BG, base));
+      // fill(map(i, 0, len, BGCOLOR, base));
+      fill(lerpColor(BGCOLOR, base, i / len));
 
       size = (i / len) * SPARKSIZE;
       x = this.trail[i].x;

@@ -1,10 +1,15 @@
-var NUMSPARKS = 20;
-var BG = 25;
+var NUMSPARKS = 10;
+var BG = 21;
+var BGCOLOR = [72, 66, 244];
+var WHITE = [255, 255, 255];
 
 var canvas;
 var sparks = [];
 
 function setup() {
+  BGCOLOR = color(BGCOLOR);
+  WHITE = color(WHITE);
+
   canvas = createCanvas(windowWidth, 300);
   canvas.parent('sketch-box');
   for (var i = 0; i < NUMSPARKS; i += 1) {
@@ -13,8 +18,9 @@ function setup() {
 }
 
 function draw() {
+  // background(BG);
+  background(BGCOLOR);
   noStroke();
-  background(BG);
   for (var i = 0; i < NUMSPARKS; i += 1) {
     sparks[i].update();
     if (sparks[i].respawn()) {
