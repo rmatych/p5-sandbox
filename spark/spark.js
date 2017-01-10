@@ -1,6 +1,6 @@
-var FRICTION = 0.005;
-var TRAILLENGTH = 90;
-var SPARKSIZE = 10;
+var FRICTION = 0.002;
+var TRAILLENGTH = 60;
+var SPARKSIZE = 3;
 
 function Spark(pos, vel) {
   if (typeof pos !== 'undefined') {

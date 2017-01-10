@@ -1,4 +1,4 @@
-var NUMSPARKS = 10;
+var NUMSPARKS = 20;
 var BG = 21;
 var BGCOLOR = [72, 66, 244];
 var WHITE = [255, 255, 255];
